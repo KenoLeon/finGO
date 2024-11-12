@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development', // Set the mode to 'development' for local preview
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
@@ -22,8 +23,11 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     compress: true,
     port: 9000,
+    open: true, // Automatically open the browser
   },
 };
