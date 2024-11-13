@@ -1,3 +1,4 @@
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -20,6 +21,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      inject: 'body', // Ensure the script tag is injected at the end of the body
     }),
   ],
   devServer: {
